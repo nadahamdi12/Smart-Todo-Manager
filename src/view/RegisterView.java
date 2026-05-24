@@ -1,23 +1,23 @@
-package view;
+package view; //La classe appartient au package view
 
-import controller.AuthController;
-
+import controller.AuthController; //utiliser la méthode register()
+//les composants Swing
 import javax.swing.*;
 import javax.swing.border.*;
 import java.awt.*;
 import java.awt.event.*;
 
-public class RegisterView extends JFrame {
+public class RegisterView extends JFrame { //RegisterView hérite de JFrame, donc c’est une fenêtre.
 
     private JTextField nameField;
     private JTextField emailField;
-    private JPasswordField passwordField;
+    private JPasswordField passwordField; //mot de passe. Le texte est masqué.
     private JPasswordField confirmPasswordField;
-    private JButton registerButton;
-    private JButton backButton;
-    private JLabel errorLabel;
+    private JButton registerButton; //Bouton pour créer le compte 
+    private JButton backButton; //bouton pour revenir au login.
+    private JLabel errorLabel; //Label utilisé pour afficher les erreurs dans la fenêtre.
 
-    private AuthController authController;
+    private AuthController authController;  //Contrôleur utilisé pour inscrire l’utilisateur dans la base de données.
 
     // ── Palette (identique LoginView / DashboardView) ─────────────────────────
     private static final Color BG         = new Color(0xF4F6FB);
@@ -32,23 +32,23 @@ public class RegisterView extends JFrame {
     private static final Color HEADER_BG  = new Color(0x1E3A8A);
     private static final Color INPUT_FOC  = new Color(0x93C5FD);
 
-    public RegisterView() {
-        authController = new AuthController();
+    public RegisterView() { //C’est le constructeur. Il s’exécute quand on fait : new RegisterView()
+        authController = new AuthController(); //On crée le contrôleur pour gérer l’inscription.
 
         setTitle("Inscription — To Do List");
         setSize(420, 700);
         setMinimumSize(new Dimension(380, 680));
-        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE); //Ferme seulement cette fenêtre, pas toute l’application.
         setLocationRelativeTo(null);
-        setResizable(false);
+        setResizable(false); //Empêche l’utilisateur de redimensionner la fenêtre.
 
         // Root
-        JPanel root = new JPanel(new GridBagLayout());
+        JPanel root = new JPanel(new GridBagLayout()); //Crée le panneau principal avec GridBagLayout.
         root.setBackground(BG);
         setContentPane(root);
 
         // ── Card ──────────────────────────────────────────────────────────────
-        JPanel card = new JPanel() {
+        JPanel card = new JPanel() { //crée une carte personnalisée
             protected void paintComponent(Graphics g) {
                 Graphics2D g2 = (Graphics2D) g;
                 g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
