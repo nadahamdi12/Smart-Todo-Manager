@@ -53,7 +53,11 @@ The To Do List Dashboard allows users to:
 
 /src
 ├── views ## This layer handles everything related to the Graphical User Interface (GUI).
+
 ├── controllers ## Acts as the middle layer between the UI and the data layer.
+
 ├── models ## Represents the core data structures of the application.
+
 ├── dao ## Handles all communication with the database (SQL).
+
 /App.java ## this is the main directory that contains all the Java source code of the application.
